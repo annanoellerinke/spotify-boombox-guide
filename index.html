@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="A little collection of mixtapes. Pick a tape, unfold its songs, and press play.">
+  <title>Anna's Spotify</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="gaegu.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="character.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#tapes">Skip to the tapes</a>
+  <div class="page">
+    <header class="site-header"><h1 id="site-title">Anna’s Spotify</h1><span class="edition">a little music, from me to you</span></header>
+    <main class="studio" aria-label="Mixtape player">
+      <section class="collection" aria-label="Boombox and cassette collection">
+        <div class="boombox" id="boombox">
+          <img class="boombox-image" src="boombox.png" alt="A polished chrome vintage boombox with cream controls and black mesh speakers" width="1536" height="1024" fetchpriority="high" draggable="false">
+          <div class="loaded-label hand" aria-hidden="true"><span id="loaded-title">sexy!</span><span id="loaded-doodle"></span></div>
+          <span class="play-light" aria-hidden="true"></span>
+          <div class="transport" aria-label="Boombox controls">
+            <button class="hardware previous" id="previous-track" aria-label="Previous song" title="Previous song"></button>
+            <button class="hardware play" id="play" aria-label="Play" title="Play"></button>
+            <button class="hardware next" id="next-track" aria-label="Next song" title="Next song"></button>
+            <button class="hardware stop" id="stop" aria-label="Stop" title="Stop"></button>
+            <button class="hardware pause" id="pause" aria-label="Pause" title="Pause"></button>
+          </div>
+        </div>
+        <div class="deck-caption"><span class="status-dot" aria-hidden="true"></span><span id="deck-status">Pick a tape. Press play.</span></div>
+        <div id="tapes" class="tapes" role="group" aria-label="Choose a playlist"></div>
+        <p class="shelf-note">three tapes. a few good obsessions.</p>
+      </section>
+      <aside class="listening" aria-label="Selected playlist">
+        <section class="insert" aria-labelledby="playlist-title">
+          <div class="insert-top"><div class="insert-brand"><span class="owner-mark">ANNA</span></div><div class="tape-format"><span>CHF</span><b>90</b></div></div>
+          <div class="insert-spine"><span class="spine-format">90 <small>CHF</small></span><h2 class="hand" id="playlist-title">sexy!</h2><span class="spine-doodle" id="insert-doodle" aria-hidden="true"></span></div>
+          <div class="insert-band"><span class="owner-mark">ANNA</span><span>TYPE I / NORMAL POSITION</span><b>CHF 90</b></div>
+          <div class="side-labels" aria-hidden="true"><div><b>A</b><small>DATE :<br>NOISE<br>REDUCTION &nbsp; <i>ON</i> <i>OFF</i></small><span>COUNT</span></div><div><b>B</b><small>DATE :<br>NOISE<br>REDUCTION &nbsp; <i>ON</i> <i>OFF</i></small><span>COUNT</span></div></div>
+          <div class="song-columns"><ol id="side-a" class="song-list" aria-label="Side A"></ol><ol id="side-b" class="song-list" aria-label="Side B"></ol></div>
+          <div class="insert-bottom" aria-hidden="true"><span>MADE WITH LOVE</span><span>STEREO &nbsp; ▥</span></div>
+        </section>
+        <nav class="paging" aria-label="Playlist song pages"><span id="page-range" aria-live="polite">Songs 1–20 of 54</span><button id="next-page" class="refresh"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10a8 8 0 1 0-1 7M20 4v6h-6"/></svg><span>Next 20</span></button></nav>
+        <section class="spotify-section" aria-label="Official Spotify player"><div id="player-shell"><div id="spotify-player"></div></div><a id="spotify-link" class="spotify-link" href="https://open.spotify.com/playlist/3G4d4rcI8P1imnm7oB0dg2" target="_blank" rel="noopener noreferrer">Open in Spotify <span aria-hidden="true">↗</span></a><p id="player-help" class="player-help" hidden>Spotify is taking a moment. You can still open this tape in Spotify.</p></section>
+      </aside>
+    </main>
+    <footer><span>Pick a tape. Press play.</span><span class="demo-tag">Made for listening.</span></footer>
+    <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+    <p id="load-error" class="load-error" role="alert" hidden></p>
+  </div>
+</body>
+</html>

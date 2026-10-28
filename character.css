@@ -1,0 +1,210 @@
+/* Lettering and print finish matched to the approved cassette mockup. */
+@font-face {
+  font-family: 'Tape Marker';
+  src: url('gaegu-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tape Marker';
+  src: url('gaegu.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cassette Print';
+  src: url('bevan.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+:root { --hand: 'Tape Marker', cursive; --red: #ec181d; }
+.site-header h1 {
+  font-family: 'Cassette Print', serif;
+  font-weight: 400;
+  letter-spacing: -.045em;
+  word-spacing: .06em;
+}
+.hand, .song-name { font-family: var(--hand); font-weight: 700; }
+.ink-word { display: inline-block; white-space: nowrap; }
+.ink-letter {
+  display: inline-block;
+  transform: translateY(var(--ink-lift)) rotate(var(--ink-angle)) scale(var(--ink-size));
+  transform-origin: 50% 70%;
+}
+.tape-label {
+  left: 12%;
+  top: 17.4%;
+  width: 77%;
+  height: 17%;
+  gap: 5%;
+  font-size: 14.1cqw;
+  letter-spacing: -.065em;
+  transform: rotate(-.6deg);
+}
+.tape-label.long-title { font-size: 12.2cqw; letter-spacing: -.075em; }
+.tape:nth-child(2) .tape-label { transform: rotate(-1.3deg); }
+.tape:nth-child(3) .tape-label { transform: rotate(.4deg); }
+.tape-label svg { width: 10.3cqw; height: 10.3cqw; stroke-width: 2.6; }
+.tape-label > span:last-child { transform: rotate(-7deg) translateY(-.04em); }
+.tape:nth-child(3) .tape-label > span:last-child { transform: rotate(6deg); }
+.tape-title { -webkit-text-stroke: .008em currentColor; }
+.loaded-label {
+  font-size: 4.05cqw;
+  letter-spacing: -.07em;
+  top: 57.4%;
+  height: 4.9%;
+  gap: 5%;
+  transform: rotate(-.65deg);
+}
+.loaded-label.long-title { font-size: 3.4cqw; }
+.loaded-label svg { stroke-width: 2.5; }
+/* The insert is printed card stock, with faint fibres and a clean fold edge. */
+.insert {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid #c8bda8;
+  border-radius: 5px 6px 4px 5px;
+  background-color: #fcfbf7;
+  background-image:
+    linear-gradient(90deg, #b89c6e20, transparent 1.2%, transparent 98.8%, #a58e5e1c),
+    linear-gradient(2deg, transparent 54%, #cbbda922 54.15%, #fff8 54.5%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.63' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.065'/%3E%3C/svg%3E");
+  box-shadow: 0 2px 2px #5e4a3229, inset 0 0 0 2px #e6ddc96b;
+}
+.insert:after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: 3;
+  pointer-events: none;
+  border: 1px solid #fff6;
+  border-radius: 3px;
+  box-shadow: inset 1px 0 2px #8a704621;
+}
+.insert-top, .insert-band {
+  background-color: #10100f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.45' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
+  color: #ff2328;
+}
+.insert-top {
+  height: 22cqw;
+  min-height: 0;
+  padding: 16px 15px 0;
+  border-top-width: 5px;
+  border-bottom-width: 3px;
+  align-items: flex-start;
+}
+.insert-top:before { top: 6px; height: 5px; }
+.insert-brand { padding-top: 5px; }
+.owner-mark { font-family: 'Cassette Print', Georgia, serif; font-weight: 400; }
+.insert-brand .owner-mark {
+  font-size: calc(11.9cqw * var(--owner-scale, 1));
+  line-height: 1;
+  letter-spacing: -.03em;
+  transform: scaleX(1.22);
+  transform-origin: left center;
+}
+.tape-format { display: block; position: relative; padding-top: 0; }
+.tape-format b {
+  display: block;
+  font-size: 21.5cqw;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  line-height: .78;
+  letter-spacing: -.095em;
+  transform: scaleX(1.14);
+  transform-origin: right;
+}
+.tape-format > span {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  font-size: 4.9cqw;
+  padding-bottom: 0;
+  margin-right: 14px;
+}
+.insert-spine {
+  height: 11cqw;
+  gap: 3cqw;
+  padding-right: 4cqw;
+  position: relative;
+  justify-content: center;
+  padding-left: 7cqw;
+  border-bottom: 0;
+  background-image: repeating-linear-gradient(0deg, transparent 0, transparent calc(3.5cqw - 1px), #b5aaa04d calc(3.5cqw - 1px), #b5aaa04d 3.5cqw);
+}
+.insert-spine h2 {
+  flex: 0 1 auto;
+  max-width: 69%;
+  margin-left: 0;
+  font-size: 10.2cqw;
+  letter-spacing: -.075em;
+  line-height: .9;
+  transform: rotate(-1deg);
+  -webkit-text-stroke: .007em currentColor;
+}
+.spine-format { position: absolute; left: 0; top: 0; bottom: 0; font-size: 6cqw; padding: 2px 5px; background: #f02628; }
+.spine-format small { font-size: 2.6cqw; }
+.spine-doodle { width: 7cqw; flex: 0 0 7cqw; margin: 0 0 0 2cqw; transform: rotate(-9deg); }
+.spine-doodle .doodle { stroke-width: 2.6; }
+.insert-band { height: 6cqw; min-height: 23px; padding: 1px 10px 3px; }
+.insert-band .owner-mark { font-size: calc(5.8cqw * var(--owner-scale, 1)); letter-spacing: -.035em; transform: scaleX(1.22); }
+.insert-band > span:nth-child(2) { display: none; }
+.insert-band > b { font-weight: 700; font-size: 5.6cqw; letter-spacing: -.06em; }
+.side-labels > div { height: 6.3cqw; padding: 2px 11px; gap: 9px; }
+.side-labels b { font-size: 6cqw; }
+.side-labels small { font-size: 1.32cqw; }
+.side-labels span { font-size: 1.3cqw; }
+/* A and B share a row's natural height. Only rows needing two lines get taller. */
+.song-columns { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding-bottom: 2cqw; }
+.song-list { display: contents; }
+.song-list + .song-list { border: 0; }
+.song-list li { min-height: 6cqw; padding: 0 6px; height: auto; }
+#side-b li { border-left: 1px solid #67635b; }
+.song-button { min-height: 0; padding: 2px 0 3px; gap: 4px; }
+.song-number { min-width: 15px; font-size: 2.65cqw; line-height: 1; }
+.song-name {
+  font-size: 5.1cqw;
+  letter-spacing: -.065em;
+  font-weight: 400;
+  line-height: .83;
+  overflow-wrap: normal;
+  -webkit-text-stroke: .012em currentColor;
+}
+.song-name.long { font-size: 4.65cqw; letter-spacing: -.065em; }
+.song-list li:nth-child(3n + 1) .song-name { transform: rotate(-.5deg); }
+.song-list li:nth-child(4n) .song-name { transform: rotate(.45deg); }
+.song-list li:after { right: 20px; }
+.song-columns:after {
+  content: '';
+  position: absolute;
+  right: 3px;
+  bottom: 4px;
+  width: 13px;
+  height: 31%;
+  background: repeating-linear-gradient(0deg, #242220 0 4px, transparent 4px 8px);
+  pointer-events: none;
+}
+#side-b li { padding-right: 19px; }
+.song-button:hover { background: #f5d8bc55; }
+.song-button[aria-current=true] { background: #f7d5bd66; }
+.insert-bottom { display: none; }
+.paging { padding-top: 13px; min-height: 58px; }
+@media (max-width:1100px) and (min-width:761px) {
+  .insert-brand .owner-mark { font-size: calc(11.9cqw * var(--owner-scale, 1)); }
+  .tape-format b { font-size: 21.5cqw; }
+  .tape-format span { font-size: 4.9cqw; }
+}
+@media (max-width:760px) {
+  .insert-brand .owner-mark { font-size: calc(11.9cqw * var(--owner-scale, 1)); }
+  .insert-top { min-height: 0; padding-top: 15px; }
+  .insert-spine h2 { font-size: 10.2cqw; }
+  .song-list li { min-height: 7.4cqw; }
+  .song-name { font-size: 6.4cqw; line-height: .84; }
+  .song-name.long { font-size: 5.9cqw; }
+  .song-number { font-size: 3cqw; min-width: 12px; }
+  .loaded-label { font-size: 4.05cqw; }
+  .loaded-label.long-title { font-size: 3.4cqw; }
+}
+/* Gaegu's generous space is tightened to the compact handwritten reference. */
+.song-name { word-spacing: -.1em; }
